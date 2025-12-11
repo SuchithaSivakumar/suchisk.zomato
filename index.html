@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Zomato Delivery</title>
+
+<style>
+    body 
+    {
+        margin: 0;
+        font-family: 'Segoe UI', Arial;
+        background: #f8f8f8;
+    }
+
+    header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: #ffffff;
+        padding: 18px 40px;
+        border-bottom: 1px solid #e4e4e4;
+    }
+img {
+    max-width: 100%;
+    height: auto;
+}
+    .logo {
+        font-size: 32px;
+        font-weight: 900;
+        color: #000;
+    }
+
+    .search-area {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        width: 50%;
+    }
+
+    .search-box,
+    .location-box {
+        background: #fff;
+        padding: 12px 16px;
+        border-radius: 8px;
+        border: 1px solid #ddd;
+        flex: 1;
+       
+
+    }
+
+    .top-links a {
+        margin-left: 20px;
+        text-decoration: none;
+        color: #555;
+        font-size: 16px;
+    }
+
+
+    h2 {
+        padding: 10px 40px;
+        font-size: 32px;
+        font-weight: 700;
+        margin-top: 20px;
+        color: #222;
+    }
+
+    .categories {
+        display: flex;
+        gap: 40px;
+        padding: 20px 40px;
+        overflow-x: auto;
+    }
+
+    .cat {
+        text-align: center;
+    }
+
+    .cat img {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        object-fit: cover;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .cat p {
+        margin-top: 8px;
+        font-size: 16px;
+        font-weight: 600;
+    }
+
+   
+    .restaurant-list {
+        padding: 40px 50px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+    }
+
+    .rest-card {
+        background: #fff;
+        border-radius: 20px;
+        padding: 20px;
+        display: flex;
+        gap: 14px;
+        align-items: flex-start;
+        border: 1px solid #efefef;
+    }
+
+    .rest-card img {
+        width: 200px;
+        height: 200px;
+        border-radius: 20px;
+        object-fit: cover;
+    }
+
+    .rest-info h3 {
+        margin: 0;
+        font-size: 18px;
+        font-weight: 700;
+    }
+
+    .muted {
+        color: #777;
+        font-size: 14px;
+        margin-top: 6px;
+    }
+
+    .rating {
+        background: #ef4f5f;
+        color: white;
+        padding: 6px 10px;
+        border-radius: 6px;
+        font-size: 14px;
+        margin-top: 10px;
+        display: inline-block;
+        font-weight: bold;
+    }
+
+    .footer {
+    background: red;
+    color: white;
+    padding: 50px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.footer-logo h1 {
+    font-size: 40px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.footer-section h3,
+.social-section h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.footer-section a {
+    display: block;
+    color: #c7c7c7;
+    margin-bottom: 8px;
+    font-size: 15px;
+    text-decoration: none;
+}
+
+.footer-section a:hover {
+    color: white;
+}
+
+.social-icons span {
+    font-size: 22px;
+    margin-right: 10px;
+}
+
+.store-btn {
+    margin-top: 15px;
+    width: 160px;
+}
+.rate{
+    background: black;
+        color: white;
+        padding: 6px 10px;
+        border-radius: 6px;
+        font-size: 14px;
+        margin-top: 10px;
+        display: inline-block;
+        font-weight: bold;
+}
+ @media (max-width: 600px) {
+    .container {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+@media (max-width: 600px) {
+    h1 {
+        font-size: 22px;
+    }
+    p {
+        font-size: 16px;
+    }
+    button {
+        width: 100%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">zomato</div>
+
+    <div class="search-area">
+    <a href="https://maps.app.goo.gl/wL4ynz2XMSuwsY2e7" target="_blank">
+        <input class="location-box" value="" placeholder="location"/></a>
+        <a href="https://maps.app.goo.gl/wL4ynz2XMSuwsY2e7" target="_blank">
+        <input class="search-box" placeholder="Search for restaurant,or a dish" /></a>
+    </div>
+
+    <div class="top-links">
+         <a href="https://www.zomato.com/search">Zomato</a>
+       
+    </div>
+</header>
+
+<h2>Food that makes you happy : Order your favourites</h2>
+
+<div class="categories">
+    <div class="cat">
+        <img src="bf2d0e73add1c206aeeb9fec762438111727708719.avif" />
+        <p>Biryani</p>
+    </div>
+
+    <div class="cat">
+        <img src="197987b7ebcd1ee08f8c25ea4e77e20f1634731334.avif" />
+        <p>Chicken</p>
+    </div>
+
+    <div class="cat">
+        <img src="d0bd7c9405ac87f6aa65e31fe55800941632716575.avif" />
+        <p>Pizza</p>
+    </div>
+
+    <div class="cat">
+        <img src="9cdab6d5f275b8d2532e3878134ddbda.avif" />
+        <p>Veg Meals</p>
+    </div>
+
+    <div class="cat">
+        <img src="e444ade83eb22360b6ca79e6e777955f1632716661 (1).avif" />
+        <p>Fried Rice</p>
+    </div>
+
+    <div class="cat">
+        <img src="2b5a5b533473aada22015966f668e30e1633434990.avif" />
+        <p>Paratha</p>
+    </div>
+     <div class="cat">
+        <img src="91c554bcbbab049353a8808fc970e3b31615960315.avif" />
+        <p>Noodles</p>
+</div>
+ <div class="cat">
+        <img src="e1b5ebed94e25d832f8dea96824537521678798686.avif" />
+        <p>South Indian</p>
+</div>
+ <div class="cat">
+        <img src="8dc39742916ddc369ebeb91928391b931632716660.avif" />
+        <p>Dosa</p>
+</div>
+ <div class="cat">
+        <img src="ccb7dc2ba2b054419f805da7f05704471634886169.avif" />
+        <p>Burger</p>
+</div>
+
+   </div>
+
+<h2>Delivery Restaurants in Chennai :</h2>
+
+<div class="restaurant-list">
+
+    <div class="rest-card">
+        <img src="518a214cbca78c0095dac1501fbbde5b_o2_featured_v2.avif" />
+        <div class="rest-info">
+            <h3>Riyas Biryani</h3>
+            <div class="muted">Biryani · Chinese · South Indian</div>
+            <span class="rating">4.2 ★</span>
+        </div>
+    </div>
+
+    <div class="rest-card">
+        <img src="OIP.jpg" />
+        <div class="rest-info">
+            <h3>Domino's Pizza</h3>
+            <div class="muted">Pizza · Fast Food</div>
+            <span class="rating">4.1 ★</span>
+        </div>
+    </div>
+
+    <div class="rest-card">
+        <img src="OIP (1).jpg" />
+        <div class="rest-info">
+            <h3>Saravana Lunch Home</h3>
+            <div class="muted">South Indian · Meals</div>
+            <span class="rating">4.3 ★</span>
+        </div>
+    </div>
+
+    <div class="rest-card">
+        <img src="OIP (2).jpg" />
+        <div class="rest-info">
+            <h3>Hanifa Restaurant</h3>
+            <div class="muted">Chinese · North Indian</div>
+            <span class="rating">3.7 ★</span>
+        </div>
+    </div>
+    <div class="rest-card">
+        <img src="OIP (3).jpg" />
+        <div class="rest-info">
+            <h3>Sri Srinivasa</h3>
+            <div class="muted">Fired Rice</div>
+            <span class="rating">5.3 ★</span>
+        </div>
+    </div>
+    <div class="rest-card">
+        <img src="OIP (4).jpg" />
+        <div class="rest-info">
+            <h3>Amaravathi</h3>
+            <div class="muted">Fired Rice</div>
+            <span class="rating">4.3 ★</span>
+        </div>
+    </div>
+    <div class="rest-card">
+        <img src="OIP (2).5Kp7JTLen_DMGIuvrV1OIgHaEK" />
+        <div class="rest-info">
+            <h3>Anna Lakshmi</h3>
+            <div class="muted">Fired Rice</div>
+            <span class="rating">5.1 ★</span>
+        </div>
+    </div>
+    <div class="rest-card">
+        <img src="OIP (6).jpg" />
+        <div class="rest-info">
+            <h3>Itc crand chola bufflet</h3>
+            <div class="muted">Meals</div>
+            <span class="rating">3.3 ★</span>
+        </div>
+    </div>
+    <div class="rest-card">
+        <img src="OIP (8).jpg" />
+        <div class="rest-info">
+            <h3>Crazy Masala Food</h3>
+            <div class="muted">Fired Rice</div>
+            <span class="rating">4.2 ★</span>
+        </div>
+    </div>
+    <div class="rest-card">
+        <img src="8dc39742916ddc369ebeb91928391b931632716660.avif" />
+        <div class="rest-info">
+            <h3>Casagrand</h3>
+            <div class="muted">Dosa</div>
+            <span class="rating">4.5 ★</span>
+        </div>
+    </div>
+    <div class="rest-card">
+        <img src="20-Best-Restaurants-of-Chennai (1).jpg" />
+        <div class="rest-info">
+            <h3>Sri Srinivasa</h3>
+            <div class="muted">Masala Food</div>
+            <span class="rating">3.4 ★</span>
+        </div>
+    </div>
+    <div class="rest-card">
+        <img src="OIP (3).jpg" />
+        <div class="rest-info">
+            <h3>Sri Srinivasa</h3>
+            <div class="muted">Fired Rice</div>
+            <span class="rating">5.0 ★</span>
+        </div>
+    </div>
+
+</div><hr><hr>
+
+<center style="background-color: white;">
+    <h1 style="color: red;">_____Zomato</h1>
+    <h1>Order your favourites food u want</h1>
+
+    <table border="0" cellpadding="20" style="margin-left: 30px;">
+    <tr>
+                <td align="center" style="border: 1px solid #add; border-radius: 15px; padding: 10px; width: 200;">
+            <img src="bf2d0e73add1c206aeeb9fec762438111727708719.avif" width="250" height="300" style="border-radius: 15px;">
+            <h2>Briyani</h2>
+             <span class="rate">3.4 ★</span>
+        </td>
+
+        <td align="center" style="border: 1px solid #add; border-radius: 15px; padding: 10px; width: 200;">
+            <img src="21948feb4ea122ab37acf633ed7ec03a.avif" width="250" height="300" style="border-radius: 15px;">
+            <h2>Parotta</h2>
+             <span class="rate">4.4 ★</span>
+        </td>
+    
+       <td align="center" style="border: 1px solid #add; border-radius: 15px; padding: 10px; width: 200;">
+            <img src="2b5a5b533473aada22015966f668e30e1633434990.avif" width="250" height="300" style="border-radius: 15px;">
+            <h2>Paratha</h2>
+             <span class="rate">5.4 ★</span>
+        </td>
+        
+        <td align="center" style="border: 1px solid #add; border-radius: 15px; padding: 10px; width: 200;">
+            <img src="ccb7dc2ba2b054419f805da7f05704471634886169.avif" width="250" height="300" style="border-radius: 15px;">
+            <h2>Burger</h2>
+             <span class="rate">3.2 ★</span>
+        </td>
+         <td align="center" style="border: 1px solid #add; border-radius: 15px; padding: 10px; width: 200;">
+            <img src="e1b5ebed94e25d832f8dea96824537521678798686.avif" width="250" height="300" style="border-radius: 15px;">
+            <h2>Meals</h2>
+             <span class="rate">3.6 ★</span>
+        </td>
+     </table><br><br></center> 
+
+<hr>
+    <footer class="footer">
+    <div class="footer-container">
+
+        <div class="footer-logo">
+            <h1>zomato</h1>
+        </div>
+
+        <div class="footer-section">
+            <h3>Eternal</h3>
+            <a href="#">Zomato</a>
+            <a href="#">Blinkit</a>
+            <a href="#">District</a>
+            <a href="#">Hyperpure</a>
+            <a href="#">Feeding India</a>
+            <a href="#">Investor Relations</a>
+        </div>
+
+        <div class="footer-section">
+            <h3>For Restaurants</h3>
+            <a href="#">Partner With Us</a>
+            <a href="#">Apps For You</a>
+        </div>
+
+        <div class="footer-section">
+            <h3>For Delivery Partners</h3>
+            <a href="#">Partner With Us</a>
+            <a href="#">Apps For You</a>
+        </div>
+
+        <div class="footer-section">
+            <h3>Learn More</h3>
+            <a href="#">Privacy</a>
+            <a href="#">Security</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Help & Support</a>
+            <a href="#">Report a Fraud</a>
+            <a href="#">Blog</a>
+        </div>
+
+        <div class="social-section">
+            <h3>Social Links</h3>
+
+            <div class="social-icons">
+                <span>🔗</span>
+                <span>📸</span>
+                <span>▶️</span>
+                <span>📘</span>
+                <span>𝕏</span>
+            </div>
+
+ <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" class="store-btn">
+</div>
+       
+</div>
+    </div>
+</footer>
+
+
+</body>
+</html>
